@@ -31,8 +31,14 @@ namespace WindowsFormsApp1
 
             UpdateStyles();
 
+            
+
             BackgroundImage = Image.FromStream(new WebClient().OpenRead("https://media.tenor.com/hoUL6fIhNvcAAAAd/doctor-livesey.gif"));
             ImageAnimator.Animate(BackgroundImage, OnFrameChanged);
+
+            this.BackgroundImageLayout = ImageLayout.Stretch;
+            SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.UserPaint | ControlStyles.ResizeRedraw, true);
+
         }
 
         private void OnFrameChanged(object sender, EventArgs e)
@@ -46,7 +52,7 @@ namespace WindowsFormsApp1
             Invalidate(false);
         }
 
-
+//
 
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -152,23 +158,32 @@ namespace WindowsFormsApp1
 
         }
 
-        private void axWindowsMediaPlayer1_PlayStateChange(object sender, AxWMPLib._WMPOCXEvents_PlayStateChangeEvent e)
+        private void MenuBtn_Click(object sender, EventArgs e)
         {
-
-            if(e.newState == 8)
-            {
-                this.axWindowsMediaPlayer1.close();
-                this.Controls.Remove(axWindowsMediaPlayer1);
-            }
-
+            Form2 ifrm = new Form2();
+            ifrm.Show();
+            this.Hide();
         }
 
-        private void axWindowsMediaPlayer1_Enter(object sender, EventArgs e)
-        {
+        /*/
+private void axWindowsMediaPlayer1_PlayStateChange(object sender, AxWMPLib._WMPOCXEvents_PlayStateChangeEvent e)
+{
 
-        }
+   if(e.newState == 8)
+   {
+       this.axWindowsMediaPlayer1.close();
+       this.Controls.Remove(axWindowsMediaPlayer1);
 
-  
+   }
+
+}
+
+private void axWindowsMediaPlayer1_Enter(object sender, EventArgs e)
+{
+
+}
+/*/
+
 
         private void AddScore(int score)
         {
@@ -177,7 +192,7 @@ namespace WindowsFormsApp1
         }
 
 
-
+        
       
 
 
