@@ -35,6 +35,7 @@ namespace WindowsFormsApp1
 
             BackgroundImage = Image.FromStream(new WebClient().OpenRead("https://media.tenor.com/hoUL6fIhNvcAAAAd/doctor-livesey.gif"));
             ImageAnimator.Animate(BackgroundImage, OnFrameChanged);
+            
 
             this.BackgroundImageLayout = ImageLayout.Stretch;
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.UserPaint | ControlStyles.ResizeRedraw, true);
@@ -116,7 +117,7 @@ namespace WindowsFormsApp1
         public WMPLib.WindowsMediaPlayer WMP = new WMPLib.WindowsMediaPlayer();
         private void button4_Click(object sender, EventArgs e)
         {
-            WMP.URL = @"\\192.168.0.245\share student$\Desktop Student$\алексеев корней\Рабочий стол\sound\sound.wav";
+            WMP.URL = @"C:\Users\алексеев корней\Downloads\cgamethis\WindowsFormsApp1\Resources\videoplayback.m4a";
             WMP.controls.play();
             //WMP.controls.stop();
             //WMP.close();
@@ -125,7 +126,7 @@ namespace WindowsFormsApp1
 
         private void button2_Click(object sender, EventArgs e)
         {
-            WMP.URL = @"\\192.168.0.245\share student$\Desktop Student$\алексеев корней\Рабочий стол\sound\sound.wav";
+            WMP.URL = @"C:\Users\алексеев корней\Downloads\cgamethis\WindowsFormsApp1\Resources\videoplayback.m4a";
             //WMP.controls.play();
             WMP.controls.stop();
             //WMP.close();        
@@ -160,9 +161,15 @@ namespace WindowsFormsApp1
 
         private void MenuBtn_Click(object sender, EventArgs e)
         {
-            Form2 ifrm = new Form2();
-            ifrm.Show();
+            Form2 form2 = new Form2();
+            form2.Show();
             this.Hide();
+            
+        }
+     
+        public Form1(Form2 f)
+        {
+            InitializeComponent();
         }
 
         /*/

@@ -28,13 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             this.button2 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.scoreLabel = new System.Windows.Forms.Label();
-            this.tmer1 = new System.Windows.Forms.Timer(this.components);
-            this.tmer2 = new System.Windows.Forms.Timer(this.components);
+            this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             this.SuspendLayout();
             // 
             // button2
@@ -43,12 +42,13 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("MingLiU_HKSCS-ExtB", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(968, 339);
+            this.button2.Location = new System.Drawing.Point(243, 232);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(107, 52);
             this.button2.TabIndex = 11;
-            this.button2.Text = "Music Off";
+            this.button2.Text = "Settings";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button4
             // 
@@ -56,59 +56,51 @@
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("MingLiU_HKSCS-ExtB", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.Color.LightYellow;
-            this.button4.Location = new System.Drawing.Point(968, 267);
+            this.button4.Location = new System.Drawing.Point(243, 166);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(107, 47);
             this.button4.TabIndex = 10;
-            this.button4.Text = "Music On";
+            this.button4.Text = "Continue";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
             this.button3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button3.ForeColor = System.Drawing.Color.Coral;
-            this.button3.Location = new System.Drawing.Point(969, 462);
+            this.button3.Location = new System.Drawing.Point(243, 401);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(106, 42);
+            this.button3.Size = new System.Drawing.Size(107, 42);
             this.button3.TabIndex = 9;
             this.button3.Text = "Выйти из игры";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // scoreLabel
+            // axWindowsMediaPlayer1
             // 
-            this.scoreLabel.AutoSize = true;
-            this.scoreLabel.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.scoreLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.scoreLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.scoreLabel.Location = new System.Drawing.Point(962, 49);
-            this.scoreLabel.Name = "scoreLabel";
-            this.scoreLabel.Size = new System.Drawing.Size(40, 42);
-            this.scoreLabel.TabIndex = 8;
-            this.scoreLabel.Text = "0";
-            // 
-            // tmer1
-            // 
-            this.tmer1.Tick += new System.EventHandler(this.tmer1_Tick);
-            // 
-            // tmer2
-            // 
-            this.tmer2.Tick += new System.EventHandler(this.tmer2_Tick);
+            this.axWindowsMediaPlayer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.axWindowsMediaPlayer1.Enabled = true;
+            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(0, 0);
+            this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
+            this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
+            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(584, 561);
+            this.axWindowsMediaPlayer1.TabIndex = 12;
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::WindowsFormsApp1.Resource1.background;
-            this.ClientSize = new System.Drawing.Size(1097, 524);
+            this.ClientSize = new System.Drawing.Size(584, 561);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.scoreLabel);
+            this.Controls.Add(this.axWindowsMediaPlayer1);
             this.Name = "Form2";
             this.Text = "Form2";
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -117,8 +109,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Label scoreLabel;
-        private System.Windows.Forms.Timer tmer1;
-        private System.Windows.Forms.Timer tmer2;
+        private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
     }
 }

@@ -12,25 +12,69 @@ namespace WindowsFormsApp1
 {
     public partial class Form2 : Form
     {
-        public Bitmap HandlerTexure = Resource1.Handler,
-            TargetTexture = Resource1.Target;
-        private Point _targetPosition = new Point(300, 300);
-        private Point _direction = Point.Empty;
-        private int _score = 0;
+ 
 
 
-        private void tmer1_Tick(object sender, EventArgs e)
+    
+        public Form2()
         {
-            Refresh();
+            InitializeComponent();
+        }
+        public Form2(Form1 f)
+        {
+            InitializeComponent();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Form1 form1 = new Form1();
+            form1.Show();
+            this.Hide();
+        }
+
+        private void axWindowsMediaPlayer1_PlayStateChange(object sender, AxWMPLib._WMPOCXEvents_PlayStateChangeEvent e)
+        {
+
+            if (e.newState == 8)
+            {
+                this.axWindowsMediaPlayer1.close();
+                this.Controls.Remove(axWindowsMediaPlayer1);
+
+            }
 
         }
 
-        private void tmer2_Tick(object sender, EventArgs e)
+        private void axWindowsMediaPlayer1_Enter(object sender, EventArgs e)
         {
-            Random r = new Random();
-            tmer2.Interval = r.Next(25, 1000);
-            _direction.X = r.Next(-1, 2);
-            _direction.Y = r.Next(-1, 2);
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            DialogResult res = MessageBox.Show("Вы действительно хотите выйти?", "Предупреждение", MessageBoxButtons.YesNoCancel);
+            if (res == System.Windows.Forms.DialogResult.Yes)
+            {
+                Form1.ActiveForm.Close();
+
+            }
+            else
+            {
+                return;
+            }
+            Form1 form1 = (Form1)Application.OpenForms["Form1"];
+            if (form1 != null)
+            {
+                this.Close();
+            }
+            else
+                MessageBox.Show("Error while changing data in Form1.", "Error");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Settings settings = new Settings();
+            settings.Show();
+            this.Hide();
         }
     }
 }
